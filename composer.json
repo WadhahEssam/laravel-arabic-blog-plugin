@@ -1,7 +1,6 @@
 {
     "name": "wadahesam/laravel-blog-plugin",
     "description": "laravel package that adds ( blogs / categories / authors / keywords ) alongs with its independent control panel",
-    "type": "composer-plugin",
     "license": "MIT",
     "authors": [
         {
