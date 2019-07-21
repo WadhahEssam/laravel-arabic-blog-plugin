@@ -2,6 +2,7 @@
     "name": "wadahesam/laravel-blog-plugin",
     "description": "laravel package that adds ( blogs / categories / authors / keywords ) alongs with its independent control panel",
     "license": "MIT",
+    "type": "library",
     "authors": [
         {
             "name": "Wadhah Essam Mac",
