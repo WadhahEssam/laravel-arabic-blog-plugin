@@ -9,5 +9,17 @@
             "email": "wadah-wleed@hotmail.com"
         }
     ],
+    "autoload": {
+        "psr-4": {
+            "Wadahesam\\LaravelBlogPlugin\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Wadahesam\\LaravelBlogPlugin\\LaravelBlogPluginServiceProvider"
+            ]
+        }
+    },
     "require": {}
 }
