@@ -15,6 +15,8 @@ class CreateKeywordPostTable extends Migration
     {
         Schema::create('keyword_post', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->unsignedBigInteger('keyword_id');
+            $table->unsignedBigInteger('post_id');
             $table->timestamps();
         });
     }

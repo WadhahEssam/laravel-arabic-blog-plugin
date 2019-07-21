@@ -23,4 +23,13 @@ class Post extends Model
     public function author() {
         return $this->belongsTo(Author::class);
     }
+
+    /**
+     * returns the keywords of this post
+     *
+     * @return collection
+     */
+    public function keywords() {
+        return $this->belongsToMany(Keyword::class);
+    }
 }
