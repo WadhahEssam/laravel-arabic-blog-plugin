@@ -28,6 +28,7 @@ class LaravelBlogPluginServiceProvider extends ServiceProvider
         $this->registerRoutes();
         $this->loadMigrationsFrom(__DIR__ . '/database/migrations');
         $this->loadViewsFrom(__DIR__.'/views/dashboard', 'dashboard');
+        $this->publisheThings();
     }
 
     /**
@@ -53,5 +54,27 @@ class LaravelBlogPluginServiceProvider extends ServiceProvider
             'namespace'  => "Wadahesam\LaravelBlogPlugin\Http\Controllers",
             'prefix'     => config('blog-plugin.prefix'),
         ];
+    }
+
+    /**
+     * Publishes the needed assets
+     *
+     * @return array
+     */
+    protected function publisheThings()
+    {
+        $this->publishes([
+            __DIR__ . '/database/migrations/' => database_path('migrations'),
+        ], 'blog-plugin:migrations');
+        // TODO: check this if working
+        $this->publishes([
+            __DIR__ . '/views' => resource_path('views/blog-blugin'),
+        ], 'blog-plugin:views');
+        $this->publishes([
+            __DIR__ . '/../config/blog-plugin.php' => config_path('blog-plugin.php'),
+        ], 'blog-plugin:config');
+        $this->publishes([
+            __DIR__ . '/routes/routes.php' => base_path("routes/blog-plugin.php"),
+        ], 'blog-plugin:routes');
     }
 }
