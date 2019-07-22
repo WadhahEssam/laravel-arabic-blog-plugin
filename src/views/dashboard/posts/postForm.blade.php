@@ -8,7 +8,7 @@
   <div class="label-div" style="margin-top:10px"><label style="margin-bottom: 22px !important;" class="label-text">صورة الموضوع</label></div>
   <div style="margin-bottom:15px" class="fileinput fileinput-new text-center" data-provides="fileinput">
     <div style="padding:10px" class="fileinput-new thumbnail img-raised">
-      <img id="preview-image" style="width: 26%;margin: 13px; @if(!$isEdit) display:none; @endif" src="" alt="...">
+      <img id="preview-image" style="width: 26%;margin: 13px;" src="{{($isEdit) ? '' : '/vendor/blog-plugin/images/example-news.png'}}" alt="...">
       <div>
         <button type="button" class="btn btn-info btn-round fileinput-exists" id="file-button" class=" fileinput-new">تحديد الصورة</button>
         <input id="file-input" style="display:none" type="file" name="..." />
@@ -19,6 +19,8 @@
   </div>
 </fieldset>
 <input id="file_link" type="hidden" name="file" value="" />
+@include('dashboard::scripts.imageSubmittingScript')
+<!-- End Photo Upload -->
 
 <fieldset id="fieldset_title">
   <div class="form-group">
