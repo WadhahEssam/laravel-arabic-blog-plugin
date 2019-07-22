@@ -106,6 +106,7 @@ class PostController extends Controller
    */
   public function destroy($id)
   {
-    //
+    Post::find($id)->delete();
+    return redirect()->route('posts.index')->with('success', 'تم الحذف بنجاح');
   }
 }
