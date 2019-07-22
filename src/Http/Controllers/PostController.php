@@ -14,7 +14,7 @@ class PostController extends Controller
    */
   public function index()
   {
-    return view('dashboard::posts', ['menu' => 'posts']);
+    return view('dashboard::posts.posts', ['menu' => 'posts']);
   }
 
   /**
@@ -24,7 +24,7 @@ class PostController extends Controller
    */
   public function create()
   {
-    return view('dashboard::createPost', ['menu' => 'createPost']);
+    return view('dashboard::posts.createPost', ['menu' => 'createPost']);
   }
 
   /**
