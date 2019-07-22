@@ -27,7 +27,7 @@ class LaravelBlogPluginServiceProvider extends ServiceProvider
         $this->mergeConfigFrom(__DIR__ . '/../config/blog-plugin.php', 'blog-plugin');
         $this->registerRoutes();
         $this->loadMigrationsFrom(__DIR__ . '/database/migrations');
-        $this->loadViewsFrom(__DIR__.'/views', 'blogPlugin');
+        $this->loadViewsFrom(__DIR__.'/views/dashboard', 'dashboard');
     }
 
     /**
@@ -51,7 +51,6 @@ class LaravelBlogPluginServiceProvider extends ServiceProvider
     {
         return [
             'namespace'  => "Wadahesam\LaravelBlogPlugin\Http\Controllers",
-            'middleware' => 'web',
             'prefix'     => config('blog-plugin.prefix'),
         ];
     }

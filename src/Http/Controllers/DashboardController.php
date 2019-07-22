@@ -7,13 +7,7 @@ use App\Http\Controllers\Controller; // dont forget to add this
 
 class DashboardController extends Controller
 {
-    public function add($a, $b){
-        $result = $a + $b;
-
-        return view('blogPlugin::add', compact('result'));
-    }
-
-    public function subtract($a, $b){
-    	echo $a - $b;
-    }
+    public function showDashboard() {
+        return view('dashboard::layout.app');
+    }   
 }
