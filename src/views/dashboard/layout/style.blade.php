@@ -1,6 +1,6 @@
 <style>
   * {
-    font-family: 'Markazi Text', serif;
+    font-family: 'Changa', sans-serif;
   }
 
   .bd-placeholder-img {
@@ -20,6 +20,21 @@
 
   .main-container {
     margin-top: 20px;
+  }
+
+  .page-title {
+    margin: 20px 0px;
+    text-align: right;
+  }
+
+  .nav-link {
+    font-size: 18px !important;
+  }
+
+  .table .thead-dark th {
+    color: #fff;
+    background-color: #343a40!important;
+    border-color: #32383e;
   }
 
   @media (min-width: 768px) {
@@ -66,7 +81,7 @@
   .nav-scroller {
     position: relative;
     z-index: 2;
-    height: 2.75rem;
+    height: 3.1rem;
     overflow-y: hidden;
   }
 
