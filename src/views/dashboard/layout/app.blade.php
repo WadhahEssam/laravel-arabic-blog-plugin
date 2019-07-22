@@ -58,11 +58,12 @@
     </div>
     <div class="container my-3 p-3 bg-white rounded shadow-sm" style="margin-bottom: 80px !important">
       <div class="section">
+        @include('dashboard::layout.notification')
         @yield('content')
       </div>
     </div>
-
   </main>
+  @include('dashboard::scripts.formSubmittingScript')
   <script>
     $(function() {
       'use strict'

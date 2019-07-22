@@ -10,5 +10,5 @@ Route::post('uploadImage', 'DashboardController@uploadImage');
 Route::resource('/posts', 'PostController');
 
 Route::get('test', function() {
-  return Keyword::all()[0]->posts;
+  return Post::all();
 });

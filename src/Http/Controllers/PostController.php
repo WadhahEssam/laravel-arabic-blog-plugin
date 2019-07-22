@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller; // dont forget to add this 
 use Wadahesam\LaravelBlogPlugin\Model\Author;
 use Wadahesam\LaravelBlogPlugin\Model\Category;
+use Wadahesam\LaravelBlogPlugin\Model\Post;
+use Wadahesam\LaravelBlogPlugin\Http\Requests\PostRequest;
 
 class PostController extends Controller
 {
@@ -28,7 +30,7 @@ class PostController extends Controller
   {
     $authors = Author::all();
     $categories = Category::all();
-    return view('dashboard::posts.createPost', ['menu' => 'createPost', 'authors' => $authors, 'categories' => $categories ]);
+    return view('dashboard::posts.createPost', ['menu' => 'posts', 'authors' => $authors, 'categories' => $categories ]);
   }
 
   /**
@@ -37,9 +39,17 @@ class PostController extends Controller
    * @param  \Illuminate\Http\Request  $request
    * @return \Illuminate\Http\Response
    */
-  public function store(Request $request)
+  public function store(PostRequest $request)
   {
-    //
+    $newPost = new Post;
+    $newPost->title = $request->title;
+    $newPost->picture = $request->file;
+    $newPost->introduction = $request->introduction;
+    $newPost->content = $request->content;
+    $newPost->category_id = $request->category;
+    $newPost->author_id = $request->author;
+    $newPost->save();
+    return response()->json('good', 200);
   }
 
   /**

@@ -18,7 +18,7 @@
     <div class="fileinput-preview fileinput-exists thumbnail img-raised"></div>
   </div>
 </fieldset>
-<input id="file_link" type="hidden" name="file" value="" />
+<input id="file_link" type="hidden" name="file" value="{{($isEdit) ? '' : '/vendor/blog-plugin/images/example-news.png'}}"/>
 @include('dashboard::scripts.imageSubmittingScript')
 <!-- End Photo Upload -->
 
@@ -34,18 +34,17 @@
     <label for="introduction-field">مقدمة</label>
     <textarea name="introduction" class="form-control" id="introduction-field" rows="3"></textarea>
   </div>
-  <textarea style="display: none" id="real_content" name="content"></textarea>
 </fieldset>
 
 <fieldset id="fieldset_content">
   <div>
     <label for="introduction-field">المحتوى</label>
     <textarea name="content-area" id="content" rows="10" cols="80"></textarea>
-    <textarea style="display: none" id="real_content" name="content"></textarea>
   </div>
 </fieldset>
+<textarea style="display: none" id="real_content" name="content"></textarea>
 
-<fieldset id="fieldset_title" style="margin-top: 13px">
+<fieldset id="fieldset_author" style="margin-top: 13px">
   <label for="author-field">المحرر</label>
   <select name="author" class="form-control" id="author-field">
     <option></option>
@@ -66,7 +65,7 @@
 </fieldset>
 
 <div class="form-submit-button-div" dir="ltr">
-  <button type="button" id="save" class="btn btn-success btn-lg">{{($isEdit) ? 'تعديل' : 'اضافة'}}</button>
+  <button type="button" id="save" class="btn btn-success btn-lg">{{($isEdit) ? 'تعديل' : 'إضافة'}}</button>
 </div>
 
 <script>
