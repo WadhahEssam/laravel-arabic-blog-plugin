@@ -52,7 +52,7 @@
         @yield('title')
       </h1>
     </div>
-    <div class="container my-3 p-3 bg-white rounded shadow-sm">
+    <div class="container my-3 p-3 bg-white rounded shadow-sm" style="margin-bottom: 80px !important">
       <div class="section">
         @yield('content')
       </div>

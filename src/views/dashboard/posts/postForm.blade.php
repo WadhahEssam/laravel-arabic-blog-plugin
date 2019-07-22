@@ -1,3 +1,7 @@
+@section('imports')
+<!-- Include Editor style. -->
+<script src="/vendor/blog-plugin/ckeditor/ckeditor.js"></script>
+@endsection
 
 <!-- Photo Upload -->
 <fieldset id="fieldset_file">
@@ -16,23 +20,51 @@
 </fieldset>
 <input id="file_link" type="hidden" name="file" value="" />
 
-<div class="form-group">
-  <label for="exampleFormControlInput1">العنوان</label>
-  <input type="text" class="form-control" id="title-field" placeholder="">
-</div>
+<fieldset id="fieldset_title">
+  <div class="form-group">
+    <label for="exampleFormControlInput1">العنوان</label>
+    <input name="title" type="text" class="form-control" id="title-field" placeholder="">
+  </div>
+</fieldset>
 
-<div class="form-group">
-  <label for="introduction-field">مقدمة</label>
-  <textarea class="form-control" id="introduction-field" rows="3"></textarea>
-</div>
-<textarea style="display: none" id="real_content" name="content"></textarea>
+<fieldset id="fieldset_introduction">
+  <div class="form-group">
+    <label for="introduction-field">مقدمة</label>
+    <textarea name="introduction" class="form-control" id="introduction-field" rows="3"></textarea>
+  </div>
+  <textarea style="display: none" id="real_content" name="content"></textarea>
+</fieldset>
 
+<fieldset id="fieldset_content">
+  <div>
+    <label for="introduction-field">المحتوى</label>
+    <textarea name="content-area" id="content" rows="10" cols="80"></textarea>
+    <textarea style="display: none" id="real_content" name="content"></textarea>
+  </div>
+</fieldset>
 
-<div>
-  <label for="introduction-field">المحتوى</label>
-  <textarea name="content-area" id="content" rows="10" cols="80">
-    
-  </textarea>
+<fieldset id="fieldset_title" style="margin-top: 13px">
+  <label for="author-field">المحرر</label>
+  <select name="author" class="form-control" id="author-field">
+    <option></option>
+    @foreach($authors as $author)
+      <option value="{{$author->id}}">{{$author->name}}</option>
+    @endforeach
+  </select>
+</fieldset>
+
+<fieldset id="fieldset_category" style="margin-top: 13px">
+  <label for="category-field">التصنيف</label>
+  <select name="category" class="form-control" id="category-field">
+    <option></option>
+    @foreach($categories as $category)
+      <option value="{{$category->id}}">{{$category->name}}</option>
+    @endforeach
+  </select>
+</fieldset>
+
+<div class="form-submit-button-div" dir="ltr">
+  <button type="button" id="save" class="btn btn-success btn-lg">{{($isEdit) ? 'تعديل' : 'اضافة'}}</button>
 </div>
 
 <script>
@@ -40,8 +72,8 @@
     language: 'ar',
   });
   $('#real_content').val(CKEDITOR.instances.content.getData() + "")
-  editor.on( 'change', function( evt ) {
-      console.log(CKEDITOR.instances.content.getData());
-      $('#real_content').val(CKEDITOR.instances.content.getData() + "")
+  editor.on('change', function(evt) {
+    console.log(CKEDITOR.instances.content.getData());
+    $('#real_content').val(CKEDITOR.instances.content.getData() + "")
   });
 </script>

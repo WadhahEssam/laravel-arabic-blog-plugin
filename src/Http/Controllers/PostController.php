@@ -4,6 +4,8 @@ namespace Wadahesam\LaravelBlogPlugin\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller; // dont forget to add this 
+use Wadahesam\LaravelBlogPlugin\Model\Author;
+use Wadahesam\LaravelBlogPlugin\Model\Category;
 
 class PostController extends Controller
 {
@@ -24,7 +26,9 @@ class PostController extends Controller
    */
   public function create()
   {
-    return view('dashboard::posts.createPost', ['menu' => 'createPost']);
+    $authors = Author::all();
+    $categories = Category::all();
+    return view('dashboard::posts.createPost', ['menu' => 'createPost', 'authors' => $authors, 'categories' => $categories ]);
   }
 
   /**

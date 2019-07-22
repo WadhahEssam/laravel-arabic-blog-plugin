@@ -37,6 +37,11 @@
     border-color: #32383e;
   }
 
+  .form-submit-button-div {
+    text-align: center;
+    margin-top: 11px;
+  }
+
   @media (min-width: 768px) {
     .bd-placeholder-img-lg {
       font-size: 3.5rem;
