@@ -43,7 +43,7 @@
   }
 
   .table td {
-    padding-bottom: 0px;
+    vertical-align: middle;
   }
 
   .options-button {
@@ -54,7 +54,12 @@
   .container {
     overflow: scroll;
   }
-  
+
+  .post-picture {
+    height: 60px;
+    margin-bottom: 11px;
+  }
+
   @media (min-width: 768px) {
     .bd-placeholder-img-lg {
       font-size: 3.5rem;
