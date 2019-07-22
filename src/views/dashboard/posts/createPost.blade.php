@@ -8,5 +8,7 @@
   @php 
     $isEdit = false; 
   @endphp
-  @include('dashboard::posts.postForm')
+  <form action="">
+    @include('dashboard::posts.postForm')
+  </form>
 @endsection
