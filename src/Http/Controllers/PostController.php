@@ -85,9 +85,17 @@ class PostController extends Controller
    * @param  int  $id
    * @return \Illuminate\Http\Response
    */
-  public function update(Request $request, $id)
+  public function update(PostRequest $request, $id)
   {
-    //
+    $post = Post::find($id);
+    $post->title = $request->title;
+    $post->picture = $request->file;
+    $post->introduction = $request->introduction;
+    $post->content = $request->content;
+    $post->category_id = $request->category;
+    $post->author_id = $request->author;
+    $post->save();
+    return response()->json('good', 200);
   }
 
   /**

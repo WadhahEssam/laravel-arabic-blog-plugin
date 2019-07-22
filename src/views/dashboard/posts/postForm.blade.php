@@ -49,7 +49,7 @@
   <select name="author" class="form-control" id="author-field">
     <option></option>
     @foreach($authors as $author)
-      <option value="{{$author->id}}" @if($post->author->id == $author->id) selected @endif>{{$author->name}}</option>
+      <option value="{{$author->id}}" @if($isEdit) @if($post->author->id == $author->id) selected @endif @endif>{{$author->name}}</option>
     @endforeach
   </select>
 </fieldset>
@@ -59,7 +59,7 @@
   <select name="category" class="form-control" id="category-field">
     <option></option>
     @foreach($categories as $category)
-      <option value="{{$category->id}}" @if($post->category->id == $category->id) selected @endif>{{$category->name}}</option>
+      <option value="{{$category->id}}" @if($isEdit) @if($post->category->id == $category->id) selected @endif @endif >{{$category->name}}</option>
     @endforeach
   </select>
 </fieldset>
