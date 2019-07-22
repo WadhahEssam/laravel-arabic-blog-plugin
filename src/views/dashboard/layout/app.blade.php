@@ -37,8 +37,8 @@
   <main role="main" class="container main-container">
     <div class="nav-scroller bg-white shadow-sm">
       <nav class="nav nav-underline">
-        <a class="nav-link active" href="#">المواضيع</a>
-        <a class="nav-link" href="#">إضافة موضوع</a>
+        <a class="nav-link {{($menu == 'posts') ? 'active' : ''}}" href="{{'/'.config('blog-plugin.prefix').'/posts'}}">المواضيع</a>
+        <a class="nav-link {{($menu == 'createPost') ? 'active' : ''}}" href="{{'/'.config('blog-plugin.prefix').'/posts/create'}}">إضافة موضوع</a>
         <a class="nav-link" href="#">التصنيفات</a>
         <a class="nav-link" href="#">إضافة تصنيف</a>
         <a class="nav-link" href="#">المحررين</a>
