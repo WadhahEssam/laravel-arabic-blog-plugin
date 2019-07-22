@@ -42,6 +42,19 @@
     margin-top: 11px;
   }
 
+  .table td {
+    padding-bottom: 0px;
+  }
+
+  .options-button {
+    position: relative;
+    bottom: 6px;
+  }
+
+  .container {
+    overflow: scroll;
+  }
+  
   @media (min-width: 768px) {
     .bd-placeholder-img-lg {
       font-size: 3.5rem;

@@ -44,7 +44,7 @@
     });
 
     function removeImage(e) {
-      document.getElementById("preview-image").src = "/images/example.jpg";
-      $('#file_link').attr('value', "/images/example.jpg");
+      document.getElementById("preview-image").src = "/vendor/blog-plugin/images/example-news.png";
+      $('#file_link').attr('value', "/vendor/blog-plugin/images/example-news.png");
     }
   </script>

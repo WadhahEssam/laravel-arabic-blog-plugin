@@ -18,7 +18,8 @@ class PostController extends Controller
    */
   public function index()
   {
-    return view('dashboard::posts.posts', ['menu' => 'posts']);
+    $posts = Post::all();
+    return view('dashboard::posts.posts', ['menu' => 'posts', 'posts' => $posts]);
   }
 
   /**
