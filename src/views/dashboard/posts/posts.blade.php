@@ -33,4 +33,9 @@
     @endforeach
   </tbody>
 </table>
+<div style="text-align: center">
+  <div style="display:-webkit-inline-box;">
+    {{ $posts->links() }}
+  </div>
+</div>
 @endsection
