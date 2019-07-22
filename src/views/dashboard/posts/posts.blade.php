@@ -27,9 +27,9 @@
       <td class="text-center">{{ $post->category->name }}</td>
       <td class="text-center">{{ $post->author->name }}</td>
       <td class="text-center" style="min-width: 270px;">
-        <button style="" type="submit" class="btn btn-danger btn-sm options-button"><i class="wait fa fa-times" style="font-size:15px;position:relative;left:4px;bottom:-2px"></i> حذف</button>
-        <button style="" type="submit" class="btn btn-primary btn-sm options-button"><i class="wait fa fa-edit" style="font-size:15px;position:relative;left:4px;bottom:-2px"></i> تعديل</button>
         <button style="" type="submit" class="btn btn-success btn-sm options-button"><i class="wait fa fa-eye" style="font-size:15px;position:relative;left:4px;bottom:-2px"></i> معاينة</button>
+        <button onclick='location.href="/{{config("blog-plugin.prefix")}}/posts/{{$post->id}}/edit"' style="" type="submit" class="btn btn-primary btn-sm options-button"><i class="wait fa fa-edit" style="font-size:15px;position:relative;left:4px;bottom:-2px"></i> تعديل</button>
+        <button style="" type="submit" class="btn btn-danger btn-sm options-button"><i class="wait fa fa-times" style="font-size:15px;position:relative;left:4px;bottom:-2px"></i> حذف</button>
       </td>
     </tr>
     @endforeach

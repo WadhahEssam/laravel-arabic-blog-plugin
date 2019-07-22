@@ -18,7 +18,7 @@ class PostController extends Controller
    */
   public function index()
   {
-    $posts = Post::paginate(15);
+    $posts = Post::latest()->paginate(15);
     return view('dashboard::posts.posts', ['menu' => 'posts', 'posts' => $posts]);
   }
 
@@ -31,7 +31,7 @@ class PostController extends Controller
   {
     $authors = Author::all();
     $categories = Category::all();
-    return view('dashboard::posts.createPost', ['menu' => 'posts', 'authors' => $authors, 'categories' => $categories ]);
+    return view('dashboard::posts.createPost', ['menu' => 'posts', 'authors' => $authors, 'categories' => $categories]);
   }
 
   /**
@@ -72,7 +72,10 @@ class PostController extends Controller
    */
   public function edit($id)
   {
-    //
+    $authors = Author::all();
+    $categories = Category::all();
+    $post = Post::find($id);
+    return view('dashboard::posts.editPost', ['menu' => 'posts', 'post' => $post, 'authors' => $authors, 'categories' => $categories]);
   }
 
   /**

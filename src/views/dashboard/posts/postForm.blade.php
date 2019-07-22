@@ -8,7 +8,7 @@
   <div class="label-div" style="margin-top:10px"><label style="margin-bottom: 22px !important;" class="label-text">صورة الموضوع</label></div>
   <div style="margin-bottom:15px" class="fileinput fileinput-new text-center" data-provides="fileinput">
     <div style="padding:10px" class="fileinput-new thumbnail img-raised">
-      <img id="preview-image" style="width: 26%;margin: 13px;" src="{{($isEdit) ? '' : '/vendor/blog-plugin/images/example-news.png'}}" alt="...">
+      <img id="preview-image" style="width: 26%;margin: 13px;" src="{{($isEdit) ? $post->picture : '/vendor/blog-plugin/images/example-news.png'}}" alt="...">
       <div>
         <button type="button" class="btn btn-info btn-round fileinput-exists" id="file-button" class=" fileinput-new">تحديد الصورة</button>
         <input id="file-input" style="display:none" type="file" name="..." />
@@ -18,38 +18,38 @@
     <div class="fileinput-preview fileinput-exists thumbnail img-raised"></div>
   </div>
 </fieldset>
-<input id="file_link" type="hidden" name="file" value="{{($isEdit) ? '' : '/vendor/blog-plugin/images/example-news.png'}}"/>
+<input id="file_link" type="hidden" name="file" value="{{($isEdit) ? $post->picture : '/vendor/blog-plugin/images/example-news.png'}}"/>
 @include('dashboard::scripts.imageSubmittingScript')
 <!-- End Photo Upload -->
 
 <fieldset id="fieldset_title">
   <div class="form-group">
     <label for="exampleFormControlInput1">العنوان</label>
-    <input name="title" type="text" class="form-control" id="title-field" placeholder="">
+    <input name="title" type="text" class="form-control" id="title-field" placeholder="" value="{{ ($isEdit) ? $post->title : '' }}">
   </div>
 </fieldset>
 
 <fieldset id="fieldset_introduction">
   <div class="form-group">
     <label for="introduction-field">مقدمة</label>
-    <textarea name="introduction" class="form-control" id="introduction-field" rows="3"></textarea>
+    <textarea name="introduction" class="form-control" id="introduction-field" rows="3" value="">{{ ($isEdit) ? $post->introduction : '' }}</textarea>
   </div>
 </fieldset>
 
 <fieldset id="fieldset_content">
   <div>
     <label for="introduction-field">المحتوى</label>
-    <textarea name="content-area" id="content" rows="10" cols="80"></textarea>
+    <textarea name="content-area" id="content" rows="10" cols="80">{!! ($isEdit) ? $post->content : '' !!}</textarea>
   </div>
 </fieldset>
-<textarea style="display: none" id="real_content" name="content"></textarea>
+<textarea style="display: none" id="real_content" name="content">{!! ($isEdit) ? $post->content : '' !!}</textarea>
 
 <fieldset id="fieldset_author" style="margin-top: 13px">
   <label for="author-field">المحرر</label>
   <select name="author" class="form-control" id="author-field">
     <option></option>
     @foreach($authors as $author)
-      <option value="{{$author->id}}">{{$author->name}}</option>
+      <option value="{{$author->id}}" @if($post->author->id == $author->id) selected @endif>{{$author->name}}</option>
     @endforeach
   </select>
 </fieldset>
@@ -59,7 +59,7 @@
   <select name="category" class="form-control" id="category-field">
     <option></option>
     @foreach($categories as $category)
-      <option value="{{$category->id}}">{{$category->name}}</option>
+      <option value="{{$category->id}}" @if($post->category->id == $category->id) selected @endif>{{$category->name}}</option>
     @endforeach
   </select>
 </fieldset>

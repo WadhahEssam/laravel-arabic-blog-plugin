@@ -48,7 +48,6 @@
 
   .options-button {
     position: relative;
-    bottom: 6px;
   }
 
   .container {
@@ -56,8 +55,7 @@
   }
 
   .post-picture {
-    height: 60px;
-    margin-bottom: 11px;
+    height: 45px;
   }
 
   @media (min-width: 768px) {
