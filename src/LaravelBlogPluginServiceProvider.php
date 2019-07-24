@@ -28,6 +28,7 @@ class LaravelBlogPluginServiceProvider extends ServiceProvider
         $this->registerRoutes();
         $this->loadMigrationsFrom(__DIR__ . '/database/migrations');
         $this->loadViewsFrom(__DIR__.'/views/dashboard', 'dashboard');
+        $this->loadViewsFrom(__DIR__.'/views/publicSite', 'publicSite');
         $this->publisheThings();
     }
 
@@ -39,7 +40,10 @@ class LaravelBlogPluginServiceProvider extends ServiceProvider
     private function registerRoutes()
     {
         Route::group($this->routeConfiguration(), function () {
-            $this->loadRoutesFrom(__DIR__ . '/routes/routes.php');
+            $this->loadRoutesFrom(__DIR__ . '/routes/dashboard.php');
+        });
+        Route::group($this->publicSiteRouteConfigration(), function () {
+            $this->loadRoutesFrom(__DIR__ . '/routes/publicSite.php');
         });
     }
 
@@ -53,6 +57,19 @@ class LaravelBlogPluginServiceProvider extends ServiceProvider
         return [
             'namespace'  => "Wadahesam\LaravelBlogPlugin\Http\Controllers",
             'prefix'     => config('blog-plugin.prefix'),
+        ];
+    }
+
+    /**
+     * Get the Blogg route group configuration array.
+     *
+     * @return array
+     */
+    private function publicSiteRouteConfigration()
+    {
+        return [
+            'namespace'  => "Wadahesam\LaravelBlogPlugin\Http\Controllers",
+            'prefix'     => config('blog-plugin.public_prefix'),
         ];
     }
 
