@@ -107,6 +107,19 @@ class PostController extends Controller
     $post->content = $request->content;
     $post->category_id = $request->category;
     $post->author_id = $request->author;
+    $post->keywords()->sync([]);
+    foreach($request->keyword as $keyword) {
+      $doesExist = Keyword::where('name', $keyword)->get()->count();
+      if (!$doesExist && isset($keyword)) {
+        $newKeyword = new Keyword;
+        $newKeyword->name = $keyword;
+        $newKeyword->save();
+        $post->keywords()->attach($newKeyword);
+      } else if ($doesExist && isset($keyword)) {
+        $Keyword = Keyword::where('name', $keyword)->first();
+        $post->keywords()->attach($Keyword);
+      }
+    }
     $post->save();
     return response()->json('good', 200);
   }
