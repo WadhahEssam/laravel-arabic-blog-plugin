@@ -8,6 +8,7 @@ use Wadahesam\LaravelBlogPlugin\Model\Keyword;
 Route::redirect('/', 'admin/posts'); // redirect to the posts page when the user enters the dashboard ( could be changed later )
 Route::post('uploadImage', 'DashboardController@uploadImage');
 Route::resource('/posts', 'PostController');
+Route::resource('/categories', 'CategoryController');
 
 Route::get('test', function() {
   return Post::all();

@@ -44,7 +44,7 @@
       <nav class="nav nav-underline">
         <a class="nav-link {{($menu == 'posts') ? 'active' : ''}}" href="{{'/'.config('blog-plugin.prefix').'/posts'}}">المواضيع</a>
         <a class="nav-link {{($menu == 'createPost') ? 'active' : ''}}" href="{{'/'.config('blog-plugin.prefix').'/posts/create'}}">إضافة موضوع</a>
-        <a class="nav-link" href="#">التصنيفات</a>
+        <a class="nav-link {{($menu == 'categories') ? 'active' : ''}}" href="{{'/'.config('blog-plugin.prefix').'/categories'}}">التصنيفات</a>
         <a class="nav-link" href="#">إضافة تصنيف</a>
         <a class="nav-link" href="#">المحررين</a>
         <a class="nav-link" href="#">إضافة محرر</a>
