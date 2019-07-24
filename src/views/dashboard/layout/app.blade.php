@@ -8,21 +8,14 @@
   <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
   <meta name="generator" content="Jekyll v3.8.5">
   <title>
-    لوحة التحكم - 
+    لوحة التحكم -
     @yield('title')
   </title>
 
   <!-- Bootstrap core CSS -->
-  <link 
-  rel="stylesheet"
-  href="https://cdn.rtlcss.com/bootstrap/v4.2.1/css/bootstrap.min.css"
-  integrity="sha384-vus3nQHTD+5mpDiZ4rkEPlnkcyTP+49BhJ4wJeJunw06ZAp+wzzeBPUXr42fi8If"
-  crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.rtlcss.com/bootstrap/v4.2.1/css/bootstrap.min.css" integrity="sha384-vus3nQHTD+5mpDiZ4rkEPlnkcyTP+49BhJ4wJeJunw06ZAp+wzzeBPUXr42fi8If" crossorigin="anonymous">
   <!-- Bootstrap js -->
-  <script
-  src="https://code.jquery.com/jquery-3.4.1.min.js"
-  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-  crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
   <link href="https://fonts.googleapis.com/css?family=Changa&display=swap" rel="stylesheet">
@@ -45,7 +38,7 @@
         <a class="nav-link {{($menu == 'posts') ? 'active' : ''}}" href="{{'/'.config('blog-plugin.prefix').'/posts'}}">المواضيع</a>
         <a class="nav-link {{($menu == 'createPost') ? 'active' : ''}}" href="{{'/'.config('blog-plugin.prefix').'/posts/create'}}">إضافة موضوع</a>
         <a class="nav-link {{($menu == 'categories') ? 'active' : ''}}" href="{{'/'.config('blog-plugin.prefix').'/categories'}}">التصنيفات</a>
-        <a class="nav-link" href="#">إضافة تصنيف</a>
+        <a class="nav-link {{($menu == 'createCategories') ? 'active' : ''}}" href="{{'/'.config('blog-plugin.prefix').'/categories/create'}}">إضافة تصنيف</a>
         <a class="nav-link" href="#">المحررين</a>
         <a class="nav-link" href="#">إضافة محرر</a>
       </nav>
@@ -71,6 +64,12 @@
         $('.offcanvas-collapse').toggleClass('open')
       })
     })
+
+    $(function() {
+      $('.form').on('submit', function(event) {
+        event.preventDefault();
+      });
+    });
   </script>
 </body>
 

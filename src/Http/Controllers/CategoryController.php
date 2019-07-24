@@ -8,6 +8,7 @@ use Wadahesam\LaravelBlogPlugin\Model\Author;
 use Wadahesam\LaravelBlogPlugin\Model\Category;
 use Wadahesam\LaravelBlogPlugin\Model\Post;
 use Wadahesam\LaravelBlogPlugin\Http\Requests\PostRequest;
+use Wadahesam\LaravelBlogPlugin\Http\Requests\CategoryRequest;
 
 class CategoryController extends Controller
 {
@@ -29,39 +30,20 @@ class CategoryController extends Controller
    */
   public function create()
   {
-    $authors = Author::all();
-    $categories = Category::all();
-    return view('dashboard::posts.createPost', ['menu' => 'posts', 'authors' => $authors, 'categories' => $categories]);
+    return view('dashboard::categories.createCategory', ['menu' => 'categories']);
   }
-
   /**
    * Store a newly created resource in storage.
    *
    * @param  \Illuminate\Http\Request  $request
    * @return \Illuminate\Http\Response
    */
-  public function store(PostRequest $request)
+  public function store(CategoryRequest $request)
   {
-    $newPost = new Post;
-    $newPost->title = $request->title;
-    $newPost->picture = $request->file;
-    $newPost->introduction = $request->introduction;
-    $newPost->content = $request->content;
-    $newPost->category_id = $request->category;
-    $newPost->author_id = $request->author;
-    $newPost->save();
+    $newCategory = new Category;
+    $newCategory->name = $request->name;
+    $newCategory->save();
     return response()->json('good', 200);
-  }
-
-  /**
-   * Display the specified resource.
-   *
-   * @param  int  $id
-   * @return \Illuminate\Http\Response
-   */
-  public function show($id)
-  {
-    //
   }
 
   /**
@@ -72,10 +54,8 @@ class CategoryController extends Controller
    */
   public function edit($id)
   {
-    $authors = Author::all();
-    $categories = Category::all();
-    $post = Post::find($id);
-    return view('dashboard::posts.editPost', ['menu' => 'posts', 'post' => $post, 'authors' => $authors, 'categories' => $categories]);
+    $category = Category::find($id);
+    return view('dashboard::categories.editCategory', ['menu' => 'categories', 'category' => $category]);
   }
 
   /**
@@ -85,16 +65,11 @@ class CategoryController extends Controller
    * @param  int  $id
    * @return \Illuminate\Http\Response
    */
-  public function update(PostRequest $request, $id)
+  public function update(CategoryRequest $request, $id)
   {
-    $post = Post::find($id);
-    $post->title = $request->title;
-    $post->picture = $request->file;
-    $post->introduction = $request->introduction;
-    $post->content = $request->content;
-    $post->category_id = $request->category;
-    $post->author_id = $request->author;
-    $post->save();
+    $category = Category::find($id);
+    $category->name = $request->name;
+    $category->save();
     return response()->json('good', 200);
   }
 
@@ -106,7 +81,12 @@ class CategoryController extends Controller
    */
   public function destroy($id)
   {
-    Post::find($id)->delete();
-    return redirect()->route('posts.index')->with('success', 'تم الحذف بنجاح');
+    $category = Category::find($id);
+    if ($category->posts->count() == 0) {
+      $category->delete();
+      return redirect()->route('categories.index')->with('success', 'تم الحذف بنجاح');
+    } else {
+      return redirect()->route('categories.index')->with('error', 'لا يمكن حذف التصنيفات التي تحتوي على مواضيع');
+    }
   }
 }

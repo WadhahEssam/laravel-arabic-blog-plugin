@@ -8,7 +8,7 @@
   @php 
     $isEdit = true; 
   @endphp
-  <form action="/{{config('blog-plugin.prefix')}}/posts/{{$post->id}}" method="POST">
+  <form class="form" action="/{{config('blog-plugin.prefix')}}/posts/{{$post->id}}" method="POST">
     @method('PUT')
     @include('dashboard::posts.postForm')
   </form>
