@@ -3,7 +3,8 @@
 namespace Wadahesam\LaravelBlogPlugin\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller; 
+use App\Http\Controllers\Controller;
+use Wadahesam\LaravelBlogPlugin\Model\Post;
 
 class PublicSiteController extends Controller
 {
@@ -14,8 +15,7 @@ class PublicSiteController extends Controller
    */
   public function showHomePage()
   {
-    return view('publicSite::main');
-    // $posts = Post::latest()->paginate(15);
-    // return view('dashboard::posts.posts', ['menu' => 'posts', 'posts' => $posts]);
+    $posts = Post::paginate(10);
+    return view('publicSite::main', ['posts' => $posts]);
   }
 }
