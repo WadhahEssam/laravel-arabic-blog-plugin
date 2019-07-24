@@ -8,6 +8,7 @@ use Wadahesam\LaravelBlogPlugin\Model\Author;
 use Wadahesam\LaravelBlogPlugin\Model\Category;
 use Wadahesam\LaravelBlogPlugin\Model\Post;
 use Wadahesam\LaravelBlogPlugin\Http\Requests\PostRequest;
+use Wadahesam\LaravelBlogPlugin\Model\Keyword;
 
 class PostController extends Controller
 {
@@ -50,6 +51,18 @@ class PostController extends Controller
     $newPost->category_id = $request->category;
     $newPost->author_id = $request->author;
     $newPost->save();
+    foreach($request->keyword as $keyword) {
+      $doesExist = Keyword::where('name', $keyword)->get()->count();
+      if (!$doesExist && isset($keyword)) {
+        $newKeyword = new Keyword;
+        $newKeyword->name = $keyword;
+        $newKeyword->save();
+        $newPost->keywords()->attach($newKeyword);
+      } else if ($doesExist && isset($keyword)) {
+        $Keyword = Keyword::where('name', $keyword)->first();
+        $newPost->keywords()->attach($Keyword);
+      }
+    }
     return response()->json('good', 200);
   }
 

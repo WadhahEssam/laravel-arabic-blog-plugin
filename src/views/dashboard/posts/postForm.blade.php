@@ -44,25 +44,55 @@
 </fieldset>
 <textarea style="display: none" id="real_content" name="content">{!! ($isEdit) ? $post->content : '' !!}</textarea>
 
-<fieldset id="fieldset_author" style="margin-top: 13px">
-  <label for="author-field">المحرر</label>
-  <select name="author" class="form-control" id="author-field">
-    <option></option>
-    @foreach($authors as $author)
-      <option value="{{$author->id}}" @if($isEdit) @if($post->author->id == $author->id) selected @endif @endif>{{$author->name}}</option>
-    @endforeach
-  </select>
-</fieldset>
+<div class="row">
+  <div class="col">
+    <fieldset id="fieldset_author" style="margin-top: 13px">
+      <label for="author-field">المحرر</label>
+      <select name="author" class="form-control" id="author-field">
+        <option></option>
+        @foreach($authors as $author)
+          <option value="{{$author->id}}" @if($isEdit) @if($post->author->id == $author->id) selected @endif @endif>{{$author->name}}</option>
+        @endforeach
+      </select>
+    </fieldset>
+  </div>
+  <div class="col">
+    <fieldset id="fieldset_category" style="margin-top: 13px">
+      <label for="category-field">التصنيف</label>
+      <select name="category" class="form-control" id="category-field">
+        <option></option>
+        @foreach($categories as $category)
+          <option value="{{$category->id}}" @if($isEdit) @if($post->category->id == $category->id) selected @endif @endif >{{$category->name}}</option>
+        @endforeach
+      </select>
+    </fieldset>
+  </div>
+</div>
 
-<fieldset id="fieldset_category" style="margin-top: 13px">
-  <label for="category-field">التصنيف</label>
-  <select name="category" class="form-control" id="category-field">
-    <option></option>
-    @foreach($categories as $category)
-      <option value="{{$category->id}}" @if($isEdit) @if($post->category->id == $category->id) selected @endif @endif >{{$category->name}}</option>
-    @endforeach
-  </select>
+@if (!$isEdit)
+<label for="exampleFormControlInput1" style="margin-top: 10px">الكلمات المفتاحية</label>
+<fieldset id="fieldset_title">
+  <div class="form-group">
+    <div class="row">
+      <div class="col">
+        <input name="keyword[]" type="text" class="form-control" placeholder="" value="{{ ($isEdit && isset($post->keywords[0])) ? $post->keywords[0] : '' }}">
+      </div>
+      <div class="col">
+        <input name="keyword[]" type="text" class="form-control" placeholder="" value="{{ ($isEdit && isset($post->keywords[1])) ? $post->keywords[1] : '' }}">
+      </div>
+      <div class="col">
+        <input name="keyword[]" type="text" class="form-control" placeholder="" value="{{ ($isEdit && isset($post->keywords[2])) ? $post->keywords[2] : '' }}">
+      </div>
+      <div class="col">
+        <input name="keyword[]" type="text" class="form-control" placeholder="" value="{{ ($isEdit && isset($post->keywords[3])) ? $post->keywords[3] : '' }}">
+      </div>
+      <div class="col">
+        <input name="keyword[]" type="text" class="form-control" placeholder="" value="{{ ($isEdit && isset($post->keywords[4])) ? $post->keywords[4] : '' }}">
+      </div>
+    </div>
+  </div>
 </fieldset>
+@endif
 
 <div class="form-submit-button-div" dir="ltr">
   <button type="button" id="save" class="btn btn-success btn-lg">{{($isEdit) ? 'تعديل' : 'إضافة'}}</button>

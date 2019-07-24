@@ -26,9 +26,9 @@
           $('.modal-backdrop').remove();
           $("#thanksMsg").show();
           if ($("#save").text() == 'إضافة') {
-            location.href = "/admin/{{$menu}}?success=تمت الاضافة بنجاح";
+            location.href = "/{{config('blog-plugin.prefix')}}/{{$menu}}?success=تمت الاضافة بنجاح";
           } else {
-            location.href = "/admin/{{$menu}}?success=تم التعديل بنجاح";
+            location.href = "/{{config('blog-plugin.prefix')}}/{{$menu}}?success=تم التعديل بنجاح";
           }
         }).fail(function(jqXHR, status, err) {
           console.log(jqXHR.responseJSON.errors);
