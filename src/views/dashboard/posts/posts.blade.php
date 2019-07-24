@@ -4,6 +4,10 @@
 المواضيع
 @endsection('title')
 
+@section('headerButton')
+  <button onclick='location.href="/{{config("blog-plugin.prefix")}}/posts/create"' type="button" class="btn btn-success">اضافة موضوع</button>
+@endsection
+
 @section('content')
 <table class="table">
   <thead class="thead-dark">

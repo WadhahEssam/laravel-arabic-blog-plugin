@@ -4,6 +4,10 @@
 التصنيفات
 @endsection('title')
 
+@section('headerButton')
+  <button onclick='location.href="/{{config("blog-plugin.prefix")}}/categories/create"' type="button" class="btn btn-success">اضافة تصنيف</button>
+@endsection
+
 @section('content')
 <table class="table">
   <thead class="thead-dark">

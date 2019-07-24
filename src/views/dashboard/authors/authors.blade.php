@@ -4,6 +4,10 @@
 المحررين
 @endsection('title')
 
+@section('headerButton')
+  <button onclick='location.href="/{{config("blog-plugin.prefix")}}/authors/create"' type="button" class="btn btn-success">اضافة محرر</button>
+@endsection
+
 @section('content')
 <table class="table">
   <thead class="thead-dark">

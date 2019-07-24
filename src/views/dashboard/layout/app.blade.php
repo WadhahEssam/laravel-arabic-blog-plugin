@@ -36,18 +36,17 @@
     <div class="nav-scroller bg-white shadow-sm">
       <nav class="nav nav-underline">
         <a class="nav-link {{($menu == 'posts') ? 'active' : ''}}" href="{{'/'.config('blog-plugin.prefix').'/posts'}}">المواضيع</a>
-        <a class="nav-link {{($menu == 'createPost') ? 'active' : ''}}" href="{{'/'.config('blog-plugin.prefix').'/posts/create'}}">إضافة موضوع</a>
         <a class="nav-link {{($menu == 'categories') ? 'active' : ''}}" href="{{'/'.config('blog-plugin.prefix').'/categories'}}">التصنيفات</a>
-        <a class="nav-link {{($menu == 'createCategories') ? 'active' : ''}}" href="{{'/'.config('blog-plugin.prefix').'/categories/create'}}">إضافة تصنيف</a>
         <a class="nav-link {{($menu == 'authors') ? 'active' : ''}}" href="{{'/'.config('blog-plugin.prefix').'/authors'}}">المحررين</a>
-        <a class="nav-link {{($menu == 'authors') ? 'active' : ''}}" href="{{'/'.config('blog-plugin.prefix').'/authors/create'}}">إضافة محرر</a>
       </nav>
     </div>
 
     <div class="page-title">
       <h1>
         @yield('title')
+        @yield('headerButton')
       </h1>
+
     </div>
     <div class="container my-3 p-3 bg-white rounded shadow-sm" style="margin-bottom: 80px !important">
       <div class="section">
