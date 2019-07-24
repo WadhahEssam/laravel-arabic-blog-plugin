@@ -39,7 +39,7 @@
         <a class="nav-link {{($menu == 'createPost') ? 'active' : ''}}" href="{{'/'.config('blog-plugin.prefix').'/posts/create'}}">إضافة موضوع</a>
         <a class="nav-link {{($menu == 'categories') ? 'active' : ''}}" href="{{'/'.config('blog-plugin.prefix').'/categories'}}">التصنيفات</a>
         <a class="nav-link {{($menu == 'createCategories') ? 'active' : ''}}" href="{{'/'.config('blog-plugin.prefix').'/categories/create'}}">إضافة تصنيف</a>
-        <a class="nav-link" href="#">المحررين</a>
+        <a class="nav-link {{($menu == 'authors') ? 'active' : ''}}" href="{{'/'.config('blog-plugin.prefix').'/authors'}}">المحررين</a>
         <a class="nav-link" href="#">إضافة محرر</a>
       </nav>
     </div>

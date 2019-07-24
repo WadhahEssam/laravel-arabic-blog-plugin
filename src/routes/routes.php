@@ -9,6 +9,7 @@ Route::redirect('/', 'admin/posts'); // redirect to the posts page when the user
 Route::post('uploadImage', 'DashboardController@uploadImage');
 Route::resource('/posts', 'PostController');
 Route::resource('/categories', 'CategoryController');
+Route::resource('/authors', 'AuthorController');
 
 Route::get('test', function() {
   return Post::all();
