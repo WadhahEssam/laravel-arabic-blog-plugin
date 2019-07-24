@@ -16,11 +16,12 @@
     <div class="row">
       @foreach($posts as $post)
       <div class="col-md-4">
-        <a href="">
+        <a href="/{{ config('blog-plugin.public_prefix') }}/post/{{ $post->id }}">
           <div class="card mb-4 shadow-sm">
-            <img class="post-picture" src="{{$post->picture}}" alt="">
+            <img class="post-thumbnail-picture" src="{{$post->picture}}" alt="">
             <div class="card-body">
-              <h5 class="card-title">{{ $post->title }}</h5>
+              <h4 class="card-title">{{ $post->title }}</h4>
+              <h6 class="card-title">{{ $post->author->name }}</h5>
               <p class="card-text">{{ $post->introduction }}</p>
             </div>
           </div>

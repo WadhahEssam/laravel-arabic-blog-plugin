@@ -1,6 +1,6 @@
 <style>
 
-  * {
+  *:not(.post-content) {
       font-family: 'Changa', sans-serif;
   }
 
@@ -18,8 +18,28 @@
     opacity: 0.7;
   }
 
-  .post-picture {
+  .post-tumbnail-picture {
     max-height: 178px;  
+  }
+
+  .post-picture {
+    max-width: 70%;
+  }
+
+  .author-name {
+    margin-top: 80px;
+    margin-bottom: -20px
+  }
+
+  .post-introduction {
+    margin-top: 50px;
+  }
+
+  .post-content {
+    margin-top: 30px;
+    font-family: sans-serif;
+    margin-bottom: 50px;
+    text-align: right;
   }
 
   .jumbotron {
