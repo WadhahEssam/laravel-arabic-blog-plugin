@@ -88,12 +88,12 @@ class AuthorController extends Controller
    */
   public function destroy($id)
   {
-    $category = Category::find($id);
-    if ($category->posts->count() == 0) {
-      $category->delete();
-      return redirect()->route('categories.index')->with('success', 'تم الحذف بنجاح');
+    $author = Author::find($id);
+    if ($author->posts->count() == 0) {
+      $author->delete();
+      return redirect()->route('authors.index')->with('success', 'تم الحذف بنجاح');
     } else {
-      return redirect()->route('categories.index')->with('error', 'لا يمكن حذف التصنيفات التي تحتوي على مواضيع');
+      return redirect()->route('authors.index');
     }
   }
 }
