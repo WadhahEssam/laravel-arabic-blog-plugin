@@ -69,30 +69,28 @@
   </div>
 </div>
 
-@if (!$isEdit)
 <label for="exampleFormControlInput1" style="margin-top: 10px">الكلمات المفتاحية</label>
 <fieldset id="fieldset_title">
   <div class="form-group">
     <div class="row">
       <div class="col">
-        <input name="keyword[]" type="text" class="form-control" placeholder="" value="{{ ($isEdit && isset($post->keywords[0])) ? $post->keywords[0] : '' }}">
+        <input name="keyword[]" type="text" class="form-control" placeholder="" {{$isEdit ? 'disabled' : ''}} value="{{ ($isEdit && isset($post->keywords[0])) ? $post->keywords[0]->name : '' }}">
       </div>
       <div class="col">
-        <input name="keyword[]" type="text" class="form-control" placeholder="" value="{{ ($isEdit && isset($post->keywords[1])) ? $post->keywords[1] : '' }}">
+        <input name="keyword[]" type="text" class="form-control" placeholder="" {{$isEdit ? 'disabled' : ''}} value="{{ ($isEdit && isset($post->keywords[1])) ? $post->keywords[1]->name : '' }}">
       </div>
       <div class="col">
-        <input name="keyword[]" type="text" class="form-control" placeholder="" value="{{ ($isEdit && isset($post->keywords[2])) ? $post->keywords[2] : '' }}">
+        <input name="keyword[]" type="text" class="form-control" placeholder="" {{$isEdit ? 'disabled' : ''}} value="{{ ($isEdit && isset($post->keywords[2])) ? $post->keywords[2]->name : '' }}">
       </div>
       <div class="col">
-        <input name="keyword[]" type="text" class="form-control" placeholder="" value="{{ ($isEdit && isset($post->keywords[3])) ? $post->keywords[3] : '' }}">
+        <input name="keyword[]" type="text" class="form-control" placeholder="" {{$isEdit ? 'disabled' : ''}} value="{{ ($isEdit && isset($post->keywords[3])) ? $post->keywords[3]->name : '' }}">
       </div>
       <div class="col">
-        <input name="keyword[]" type="text" class="form-control" placeholder="" value="{{ ($isEdit && isset($post->keywords[4])) ? $post->keywords[4] : '' }}">
+        <input name="keyword[]" type="text" class="form-control" placeholder="" {{$isEdit ? 'disabled' : ''}} value="{{ ($isEdit && isset($post->keywords[4])) ? $post->keywords[4]->name : '' }}">
       </div>
     </div>
   </div>
 </fieldset>
-@endif
 
 <div class="form-submit-button-div" dir="ltr">
   <button type="button" id="save" class="btn btn-success btn-lg">{{($isEdit) ? 'تعديل' : 'إضافة'}}</button>
