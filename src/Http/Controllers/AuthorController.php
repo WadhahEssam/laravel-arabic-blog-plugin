@@ -9,6 +9,7 @@ use Wadahesam\LaravelBlogPlugin\Model\Category;
 use Wadahesam\LaravelBlogPlugin\Model\Post;
 use Wadahesam\LaravelBlogPlugin\Http\Requests\PostRequest;
 use Wadahesam\LaravelBlogPlugin\Http\Requests\CategoryRequest;
+use Wadahesam\LaravelBlogPlugin\Http\Requests\AuthorRequest;
 
 class AuthorController extends Controller
 {
@@ -30,7 +31,7 @@ class AuthorController extends Controller
    */
   public function create()
   {
-    return view('dashboard::categories.createCategory', ['menu' => 'categories']);
+    return view('dashboard::authors.createAuthor', ['menu' => 'authors']);
   }
   /**
    * Store a newly created resource in storage.
@@ -38,11 +39,14 @@ class AuthorController extends Controller
    * @param  \Illuminate\Http\Request  $request
    * @return \Illuminate\Http\Response
    */
-  public function store(CategoryRequest $request)
+  public function store(AuthorRequest $request)
   {
-    $newCategory = new Category;
-    $newCategory->name = $request->name;
-    $newCategory->save();
+    $newAuthor = new Author;
+    $newAuthor->name = $request->name;
+    $newAuthor->description = $request->description;
+    $newAuthor->facebook_link = $request->facebook_link;
+    $newAuthor->twitter_link = $request->twitter_link;
+    $newAuthor->save();
     return response()->json('good', 200);
   }
 
@@ -54,8 +58,8 @@ class AuthorController extends Controller
    */
   public function edit($id)
   {
-    $category = Category::find($id);
-    return view('dashboard::categories.editCategory', ['menu' => 'categories', 'category' => $category]);
+    $author = Author::find($id);
+    return view('dashboard::authors.editAuthor', ['menu' => 'authors', 'author' => $author]);
   }
 
   /**
@@ -65,11 +69,14 @@ class AuthorController extends Controller
    * @param  int  $id
    * @return \Illuminate\Http\Response
    */
-  public function update(CategoryRequest $request, $id)
+  public function update(AuthorRequest $request, $id)
   {
-    $category = Category::find($id);
-    $category->name = $request->name;
-    $category->save();
+    $author = Author::find($id);
+    $author->name = $request->name;
+    $author->description = $request->description;
+    $author->facebook_link = $request->facebook_link;
+    $author->twitter_link = $request->twitter_link;
+    $author->save();
     return response()->json('good', 200);
   }
 
