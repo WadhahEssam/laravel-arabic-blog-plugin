@@ -64,8 +64,6 @@
     }
   }
 
-
-
   .jumbotron p:last-child {
     margin-bottom: 0;
   }

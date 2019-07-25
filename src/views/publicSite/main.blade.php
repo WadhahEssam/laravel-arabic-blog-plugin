@@ -15,10 +15,11 @@
   <div class="container">
     <div class="row card-deck">
       @foreach($posts as $post)
-      <div class="col-sm-6 col-md-4 col-lg-4 md-6" style="margin: 10px 0px">
+      <div class="col-sm-12 col-md-6 col-lg-4 col-xl-4 md-6" style="margin: 10px 0px">
         <a href="/{{ config('blog-plugin.public_prefix') }}/post/{{ $post->id }}" class="card md-6 shadow-sm h-100">
           <img class="post-thumbnail-picture" src="{{$post->picture}}" alt="">
           <div class="card-body">
+            <h4><span class="badge badge-secondary">{{ $post->category->name }}</span></h4>
             <h4 class="card-title">{{ $post->title }}</h4>
             <h6 class="card-title">{{ $post->author->name }}</h5>
             <p class="card-text">{{ $post->introduction }}</p>
