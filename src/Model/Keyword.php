@@ -6,8 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Keyword extends Model
 {
+
     /**
-     * returns the posts that has this keyword
+     * returns the keywords of this post
      *
      * @return collection
      */

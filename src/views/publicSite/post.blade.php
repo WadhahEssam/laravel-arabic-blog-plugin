@@ -25,7 +25,9 @@
   <div class="container" style="text-align: right;">
     <p>الكلمات المفتاحية</p>
     @foreach($post->keywords as $keyword)
-    <span class="badge badge-secondary">{{ $keyword->name }}</span>
+    <a href="/{{config('blog-plugin.public_prefix')}}/keyword/{{ $keyword->name }}">
+      <span class="badge badge-secondary">{{ $keyword->name }}</span>
+    </a>
     @endforeach
   </div>
 </section>
