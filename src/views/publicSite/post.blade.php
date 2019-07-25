@@ -1,5 +1,22 @@
 @extends('publicSite::layout.app')
 
+@section('head')
+<meta content="{{ $post->introduction }}" name="description">
+<meta content="{{ env('APP_URL') }}" property="og:url">
+<meta content="{{ $post->title }}" property="og:title">
+<meta content="{{ $post->introduction }}" property="og:description">
+<meta content="{{ env('APP_URL') . $post->picture }}" property="og:image">
+<meta content="{{ $post->title }}" name="twitter:title">
+<meta content="{{ env('APP_NAME') }}" property="og:site_name">
+<meta content="{{ $post->title }}" property="og:title">
+<meta content="{{ $post->author }}" property="article:author">
+<meta content="{{ env('APP_URL') . $post->picture }}" property="og:url">
+<meta content="{{ env('APP_URL') . $post->picture }}" property="og:image:alt">
+<meta content="{{ $post->introduction }}" name="og:description">
+<meta content="{{ env('APP_URL') . $post->picture }}" name="twitter:image">
+<meta content="{{ $post->introduction }}" name="twitter:description">
+@endsection 
+
 @section('title')
 {{ $post->title }}
 @endsection
@@ -30,5 +47,17 @@
     </a>
     @endforeach
   </div>
+
+
+  <div id="social-links" style="text-align: center; margin-top: 40px">
+    <p>شارك الموضوع</p>
+    <a href="https://www.facebook.com/sharer/sharer.php?u={{ Request::url() }}&title={{$post->title}}" id=""><img class="social-button" src="/vendor/blog-plugin/images/facebook.png" alt=""></a>
+    <a href="https://twitter.com/intent/tweet?text={{$post->title}}&amp;url={{ Request::url() }}" id=""><img class="social-button" src="/vendor/blog-plugin/images/twitter.png" alt=""></a>
+    <a href="https://wa.me/?text={{ Request::url() }}" id=""><img class="social-button" src="/vendor/blog-plugin/images/whatsapp.png" alt=""></a>
+    <a href="https://t.me/share/url?url={{Request::url()}}&text={{$post->title}}" id=""><img class="social-button" src="/vendor/blog-plugin/images/telegram.png" alt=""></a>
+  </div>
+
 </section>
+
+
 @endsection

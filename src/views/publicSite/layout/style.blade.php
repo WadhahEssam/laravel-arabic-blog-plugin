@@ -50,6 +50,10 @@
     margin-bottom: 0;
     background-color: #fff;
   }
+  
+  .social-button:hover {
+    opacity: 0.7;
+  }
 
   @media (min-width: 768px) {
     .jumbotron {
