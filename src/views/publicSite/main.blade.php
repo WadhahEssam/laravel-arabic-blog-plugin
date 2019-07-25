@@ -15,14 +15,16 @@
   <div class="container">
     <div class="row card-deck">
       @foreach($posts as $post)
-          <a href="/{{ config('blog-plugin.public_prefix') }}/post/{{ $post->id }}" class="card mb-2 shadow-sm">
-            <img class="post-thumbnail-picture" src="{{$post->picture}}" alt="">
-            <div class="card-body">
-              <h4 class="card-title">{{ $post->title }}</h4>
-              <h6 class="card-title">{{ $post->author->name }}</h5>
-              <p class="card-text">{{ $post->introduction }}</p>
-            </div>
+      <div class="col-sm-6 col-md-4 col-lg-4 md-6" style="margin: 10px 0px">
+        <a href="/{{ config('blog-plugin.public_prefix') }}/post/{{ $post->id }}" class="card md-6 shadow-sm h-100">
+          <img class="post-thumbnail-picture" src="{{$post->picture}}" alt="">
+          <div class="card-body">
+            <h4 class="card-title">{{ $post->title }}</h4>
+            <h6 class="card-title">{{ $post->author->name }}</h5>
+            <p class="card-text">{{ $post->introduction }}</p>
+          </div>
         </a>
+      </div>
       @endforeach
     </div>
   </div>
