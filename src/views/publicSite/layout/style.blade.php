@@ -18,12 +18,13 @@
     opacity: 0.7;
   }
 
-  .post-tumbnail-picture {
+  .post-thumbnail-picture {
     max-height: 178px;  
   }
 
   .post-picture {
     max-width: 70%;
+    margin-top: -50px;
   }
 
   .author-name {
@@ -40,6 +41,7 @@
     font-family: sans-serif;
     margin-bottom: 50px;
     text-align: right;
+    padding: 0px 15%;
   }
 
   .jumbotron {
@@ -55,6 +57,14 @@
       padding-bottom: 6rem;
     }
   }
+
+  @media (max-width: 768px) {
+    .post-content {
+      padding: 0px 4%;
+    }
+  }
+
+
 
   .jumbotron p:last-child {
     margin-bottom: 0;

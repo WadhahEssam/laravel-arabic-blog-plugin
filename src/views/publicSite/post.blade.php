@@ -18,7 +18,7 @@
   <br />
   <img class="img-fluid rounded post-picture" src="{{$post->picture}}" alt="">
   <p class="lead text-muted post-introduction">{{ $post->introduction }}</p>
-  <div class="post-content">
+  <div class="post-content" >
     {!! $post->content !!}
   </div>
   <hr />

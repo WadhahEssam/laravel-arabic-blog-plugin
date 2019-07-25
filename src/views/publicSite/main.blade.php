@@ -13,20 +13,16 @@
 
 <div class="album py-5 bg-light">
   <div class="container">
-    <div class="row">
+    <div class="row card-deck">
       @foreach($posts as $post)
-      <div class="col-md-4">
-        <a href="/{{ config('blog-plugin.public_prefix') }}/post/{{ $post->id }}">
-          <div class="card mb-4 shadow-sm">
+          <a href="/{{ config('blog-plugin.public_prefix') }}/post/{{ $post->id }}" class="card mb-2 shadow-sm">
             <img class="post-thumbnail-picture" src="{{$post->picture}}" alt="">
             <div class="card-body">
               <h4 class="card-title">{{ $post->title }}</h4>
               <h6 class="card-title">{{ $post->author->name }}</h5>
               <p class="card-text">{{ $post->introduction }}</p>
             </div>
-          </div>
         </a>
-      </div>
       @endforeach
     </div>
   </div>
