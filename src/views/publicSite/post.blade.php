@@ -48,7 +48,6 @@
     @endforeach
   </div>
 
-
   <div id="social-links" style="text-align: center; margin-top: 40px">
     <p>شارك الموضوع</p>
     <a href="https://www.facebook.com/sharer/sharer.php?u={{ Request::url() }}&title={{$post->title}}" id=""><img class="social-button" src="/vendor/blog-plugin/images/facebook.png" alt=""></a>
@@ -56,8 +55,5 @@
     <a href="https://wa.me/?text={{ Request::url() }}" id=""><img class="social-button" src="/vendor/blog-plugin/images/whatsapp.png" alt=""></a>
     <a href="https://t.me/share/url?url={{Request::url()}}&text={{$post->title}}" id=""><img class="social-button" src="/vendor/blog-plugin/images/telegram.png" alt=""></a>
   </div>
-
 </section>
-
-
 @endsection
