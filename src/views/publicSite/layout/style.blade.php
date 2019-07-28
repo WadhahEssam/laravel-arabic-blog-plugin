@@ -41,7 +41,7 @@
     font-family: sans-serif;
     margin-bottom: 50px;
     text-align: right;
-    padding: 0px 15%;
+    padding: 0px 21%;
   }
 
   .jumbotron {
