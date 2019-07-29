@@ -1,9 +1,8 @@
 # laravel-arabic-blog-plugin
+a plugin for laravel applications that adds the ability to add arabic blogs to any existing project
 
 currently this package supports arabic language only
 
-
-a plugin for laravel applications that adds the ability to add arabic blogs to any existing project
 
 
 installing the package :
