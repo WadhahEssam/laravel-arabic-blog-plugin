@@ -6,7 +6,7 @@ a plugin for laravel applications that adds the ability to add arabic blogs to a
 
 installing the package :
 ```
-composer require wadahesam/laravel-blog-plugin
+composer require wadahesam/laravel-arabic-blog-plugin
 ```
 
 
