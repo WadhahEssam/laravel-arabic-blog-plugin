@@ -23,10 +23,19 @@ php artisan vendor:publish --tag=public --force
 ```
 
 
-(optional) publish the config/migrations/views :
+(optional) publish the config/migrations/views/routes :
 ```
 php artisan vendor:publish --tag="blog-plugin:config"
-php artisan vendor:publish --tag="blog-plugin:migration"
+php artisan vendor:publish --tag="blog-plugin:migrations"
 php artisan vendor:publish --tag="blog-plugin:views"
+php artisan vendor:publish --tag="blog-plugin:routes"
 ```
+
+
+you are ready to go now
+
+visit ( /admin ) to go to the dashboard
+visit ( /posts ) to go to the posts page
+
+you can edit those routes from the config file
 
