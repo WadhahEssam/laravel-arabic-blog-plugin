@@ -1,6 +1,6 @@
 {
-    "name": "wadahesam/laravel-blog-plugin",
-    "description": "laravel package that adds ( blogs / categories / authors / keywords ) alongs with its independent control panel",
+    "name": "wadahesam/laravel-arabic-blog-plugin",
+    "description": "laravel package that adds arabic ( blogs / categories / authors / keywords ) alongs with its independent control panel",
     "license": "MIT",
     "type": "library",
     "authors": [
