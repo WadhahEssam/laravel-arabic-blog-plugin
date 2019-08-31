@@ -9,7 +9,8 @@ return [
     | to change the prefix of the blogs control panel 
     */
     'prefix' => 'admin',
-        /*
+
+    /*
     |--------------------------------------------------------------------------
     | Prefix
     |--------------------------------------------------------------------------
@@ -17,4 +18,14 @@ return [
     | to change the prefix of the blogs public site
     */
     'public_prefix' => 'posts',
+
+    /*
+    |--------------------------------------------------------------------------
+    | Prefix
+    |--------------------------------------------------------------------------
+    |
+    | to change the prefix of the blogs public site
+    */
+    'guard' => 'web',
 ];
+
