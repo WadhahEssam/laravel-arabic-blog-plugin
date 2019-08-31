@@ -12,7 +12,7 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Prefix
+    | Public Prefix
     |--------------------------------------------------------------------------
     |
     | to change the prefix of the blogs public site
@@ -21,7 +21,7 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Prefix
+    | Guard for the blogs dashboard ( default without an auth )
     |--------------------------------------------------------------------------
     |
     | to change the prefix of the blogs public site

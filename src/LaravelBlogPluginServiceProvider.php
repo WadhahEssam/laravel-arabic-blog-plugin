@@ -39,12 +39,12 @@ class LaravelBlogPluginServiceProvider extends ServiceProvider
      */
     private function registerRoutes()
     {
-        // Route::group($this->routeConfiguration(), function () {
-        //     $this->loadRoutesFrom(__DIR__ . '/routes/dashboard.php');
-        // });
-        // Route::group($this->publicSiteRouteConfigration(), function () {
-        //     $this->loadRoutesFrom(__DIR__ . '/routes/publicSite.php');
-        // });
+        Route::group($this->routeConfiguration(), function () {
+            $this->loadRoutesFrom(__DIR__ . '/routes/dashboard.php');
+        });
+        Route::group($this->publicSiteRouteConfigration(), function () {
+            $this->loadRoutesFrom(__DIR__ . '/routes/publicSite.php');
+        });
     }
 
     /**
@@ -57,6 +57,7 @@ class LaravelBlogPluginServiceProvider extends ServiceProvider
         return [
             'namespace'  => "Wadahesam\LaravelBlogPlugin\Http\Controllers",
             'prefix'     => config('blog-plugin.prefix'),
+            'middleware' => config('blog-plugin.guard')
         ];
     }
 
