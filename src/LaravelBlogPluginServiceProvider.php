@@ -91,7 +91,8 @@ class LaravelBlogPluginServiceProvider extends ServiceProvider
             __DIR__ . '/../config/blog-plugin.php' => config_path('blog-plugin.php'),
         ], 'blog-plugin:config');
         $this->publishes([
-            __DIR__ . '/routes/routes.php' => base_path("routes/blog-plugin.php"),
+            __DIR__ . '/routes/dashboard.php' => base_path("routes/blog-plugin-dashboard.php"),
+            __DIR__ . '/routes/publicSite.php' => base_path("routes/blog-plugin-public.php"),
         ], 'blog-plugin:routes');
         $this->publishes([
             __DIR__.'/assets' => public_path('vendor/blog-plugin'),
