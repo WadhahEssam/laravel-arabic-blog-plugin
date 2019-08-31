@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Author extends Model
 {
+    protected $table = 'bauthors';
+    
     /**
      * returns the posts that this author has 
      *

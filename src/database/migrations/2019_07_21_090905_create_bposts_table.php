@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateKeywordsTable extends Migration
+class CreateBpostsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,14 @@ class CreateKeywordsTable extends Migration
      */
     public function up()
     {
-        Schema::create('keywords', function (Blueprint $table) {
+        Schema::create('bposts', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name');
+            $table->string('title');
+            $table->string('picture');
+            $table->text('introduction');
+            $table->text('content');
+            $table->unsignedBigInteger('category_id'); 
+            $table->unsignedBigInteger('author_id');
             $table->timestamps();
         });
     }
@@ -27,6 +32,6 @@ class CreateKeywordsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('keywords');
+        Schema::dropIfExists('blogs');
     }
 }

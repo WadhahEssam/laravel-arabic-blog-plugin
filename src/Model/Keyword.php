@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Keyword extends Model
 {
+    protected $table = 'bkeywords';
 
     /**
      * returns the keywords of this post

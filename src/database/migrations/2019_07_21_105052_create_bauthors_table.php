@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePostsTable extends Migration
+class CreateBauthorsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,12 @@ class CreatePostsTable extends Migration
      */
     public function up()
     {
-        Schema::create('posts', function (Blueprint $table) {
+        Schema::create('bauthors', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('title');
-            $table->string('picture');
-            $table->text('introduction');
-            $table->text('content');
-            $table->unsignedBigInteger('category_id'); 
-            $table->unsignedBigInteger('author_id');
+            $table->string('name');
+            $table->text('description');
+            $table->string('twitter_link');
+            $table->string('facebook_link');
             $table->timestamps();
         });
     }
@@ -32,6 +30,6 @@ class CreatePostsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('blogs');
+        Schema::dropIfExists('authors');
     }
 }
