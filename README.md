@@ -25,10 +25,10 @@ php artisan vendor:publish --tag=public --force
 
 (optional) publish the config/migrations/views/routes :
 ```
-php artisan vendor:publish --tag="blog-plugin:config"
-php artisan vendor:publish --tag="blog-plugin:migrations"
-php artisan vendor:publish --tag="blog-plugin:views"
-php artisan vendor:publish --tag="blog-plugin:routes"
+php artisan vendor:publish --tag="blog-plugin:config" --force 
+php artisan vendor:publish --tag="blog-plugin:migrations" --force
+php artisan vendor:publish --tag="blog-plugin:views" --force
+php artisan vendor:publish --tag="blog-plugin:routes" --force
 ```
 
 
